@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">       
-    <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css" />
+<html lang="en" ng-app="phonecatApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">       
+        <!-- bootstrap -->
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css" />
 
-    <title>Hello World</title>
+        <script src="js/angular/angular.min.js"></script>
+        <script src="js/angular/angular-resource.js"></script>
+        <script src="js/angular/angular-route.js"></script>
+
+        <script src="js/app/app.js"></script>
+        <script src="js/app/controllers.js"></script>
+
+        <title>Hello World</title>
     </head>
-    <body>
-        <div>
-            <h1>PhoneGap</h1>
-            <div id="deviceready">
-                <p>Device is Ready</p>
-            </div>
-        </div>
 
+    <body style="background-color:#F2F2F2">
+        <div ng-view></div>
+
+        <!-- Load JS here for greater good =============================-->
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
