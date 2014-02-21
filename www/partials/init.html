@@ -5,9 +5,9 @@
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </button>
-      <a href="/" class="navbar-brand" style="color: #563d7c;font-weight: 500;">HappyTaxi</a>
+      <a href="#" class="navbar-brand" style="color: #563d7c;font-weight: 500;">HappyTaxi</a>
     </div>
 
     <div class="collapse navbar-collapse bs-navbar-collapse" id="navbar-collapse-02">
@@ -25,24 +25,15 @@
       <form class="form-horizontal" role="form">
         <p>Ваші налаштування:</p>
         <div>
-          <select class="form-control">
-            <option value="0">Львів</option>
-            <option value="1">Київ</option>
-             <option value="2">Харків</option>
-          </select>
+          <select class="form-control" ng-model="myCity" ng-options="c.key as c.title for c in cities"></select>
         </div>
         <br/>
         <div>
-          <select class="form-control">
-            <option value="0">Лайф</option>
-            <option value="1">Київстар</option>
-            <option value="2">Дджус</option>
-            <option value="3">Київстар</option>
-          </select>
+          <select class="form-control" ng-model="myOperator" ng-options="c.key as c.title for c in operators"></select>
         </div>
 
         <div style="margin-top:25px;">
-            <button type="button" class="btn btn-primary">Зберегти</button>
+            <button type="button" class="btn btn-primary save-config" ng-click='saveConfig()'>Зберегти</button>
             <a class="btn btn-default" href="#">Відмінити</a>
           </div>
         </form>
