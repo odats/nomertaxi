@@ -32,6 +32,11 @@ appControllers.controller('ConfigCtrl', ['$scope', 'datasource',
 
 angular.module('appControllers').service("datasource", function() {
     this.getMyConfig = function() {
+      return {
+          city: 'lviv',
+          operator: 'ks'
+        }
+      /*  
       if(this.hasConfig()) {
         return this.get('myConfig');;
       } else {
@@ -39,7 +44,7 @@ angular.module('appControllers').service("datasource", function() {
           city: 'lviv',
           operator: 'ks'
         }
-      }
+      }*/
     },
 
     this.saveMyConfig = function(city, operator) {
