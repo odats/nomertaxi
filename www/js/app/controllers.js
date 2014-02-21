@@ -15,6 +15,7 @@ appControllers.controller('TaxiListCtrl', ['$scope', 'datasource',
 
 appControllers.controller('ConfigCtrl', ['$scope', 'datasource',
   function($scope, datasource) {
+    alert(1);
     var myConfig = datasource.getMyConfig();
     $scope.cities = datasource.getCities();
     $scope.operators = datasource.getOperators();
