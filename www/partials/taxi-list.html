@@ -1,29 +1,37 @@
-<nav class="navbar navbar-inverse" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-02">
-      <span class="sr-only">Toggle navigation</span>
-    </button>
-    <a class="navbar-brand" href="#">HappyTaxi</a>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      <a href="/" class="navbar-brand" style="color: #563d7c;font-weight: 500;">HappyTaxi</a>
+    </div>
+
+    <div class="collapse navbar-collapse bs-navbar-collapse" id="navbar-collapse-02">
+      <ul class="nav navbar-nav navbar-right">           
+          <li><a href="#init">Налаштування</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+
   </div>
-  <div class="collapse navbar-collapse" id="navbar-collapse-02">
-    <ul class="nav navbar-nav">           
-      <li><a href="#init">Налаштування</a></li>
-     </ul>
-  </div><!-- /.navbar-collapse -->
 </nav>
 
-<div class="container" style="margin-top:0px;">
-
+<div class="container" style="margin-top:70px;">
   <div class="row" ng-repeat="phone in phones"> 
-      <div class="media" style="background-color:#FFFFFF;border-bottom: 2px solid #c4c4c4;margin-bottom:15px;position:relative;">
-          <div class="pull-left" style="width:108px;height:108px;background-color:#ebedef;padding:4px;position:relative;">
-              <img src="{{phone.avatar}}" style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;padding:4px;" class="media-object img-responsive img-rounded" >
-          </div>
-          <div class="media-body" style="">
-              <div>{{phone.name}}</div>
-              <div style="position: absolute; bottom: 10px; left: 118px;"><a class="btn btn-embossed btn-primary" href="tel:380971581479">{{phone.phone}}</a></div> 
-          </div>
-      </div>           
+      <div class="col-md-9">
+        <div class="media" style="background-color:#FFFFFF;border-bottom: 2px solid #c4c4c4;margin-bottom:15px;position:relative;">
+            <div class="pull-left" style="width:108px;height:108px;background-color:#ebedef;padding:4px;position:relative;">
+                <img src="{{phone.avatar}}" style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;padding:4px;" class="media-object img-responsive img-rounded" >
+            </div>
+            <div class="media-body" style="">
+                <div>{{phone.name}}</div>
+                <div style="position: absolute; bottom: 10px; left: 118px;"><a class="btn btn-embossed btn-primary" href="tel:380971581479">{{phone.phone}}</a></div> 
+            </div>
+        </div>   
+      </div>
   </div>
  
 </div>

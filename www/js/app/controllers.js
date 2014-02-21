@@ -26,6 +26,4 @@ phonecatControllers.controller('InitCtrl', ['$scope',
   function($scope) {
     $scope.city = 'Lviv';
     $scope.operator = 'Life';
-
-    $("select").selectpicker({style: 'btn-hg btn-info', menuStyle: 'dropdown-inverse'});
   }]);

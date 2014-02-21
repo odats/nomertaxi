@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">       
         <!-- bootstrap -->
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css" />
 
         <script src="js/angular/angular.min.js"></script>
         <script src="js/angular/angular-resource.js"></script>
@@ -26,6 +25,11 @@
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript">
+            if(navigator.onLine) {
+                console.log("online");
+            } else {
+                console.log("offline");
+            }
         </script>
     </body>
 </html>
