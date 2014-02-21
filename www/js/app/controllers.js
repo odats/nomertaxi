@@ -104,10 +104,3 @@ angular.module('appControllers').service("datasource", function() {
     }
 
   });
-
-
-/* Event handlers */
-
-$(document).on( "click", ".save-config1", function() {
-  alert( $( this ).text() );
-});
