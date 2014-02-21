@@ -35,7 +35,6 @@ angular.module('appControllers').service("datasource", function() {
       if(this.hasConfig()) {
         return this.get('myConfig');;
       } else {
-        console.log('error, empty config');
         return {
           city: 'lviv',
           operator: 'ks'

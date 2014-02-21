@@ -18,6 +18,12 @@ phonecatApp.config(['$routeProvider',
         templateUrl: 'partials/init.html',
         controller: 'ConfigCtrl'
       }).
+      when('/reset', {
+        redirectTo: function() {
+          window.localStorage.clear();
+          return '/init';
+        }
+      }).
       otherwise({
         redirectTo: function() {
         	return '/taxi';
