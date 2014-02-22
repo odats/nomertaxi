@@ -108,8 +108,12 @@ angular.module('appControllers').service("datasource", function() {
     this.get = function(key) {
       alert(key);
       alert(window.localStorage.getItem(key));
-      alert(JSON.parse(window.localStorage.getItem(key)));
-      return JSON.parse(window.localStorage.getItem(key));
+      if (window.localStorage.getItem(key) == null) {
+        return null;
+      } else {
+        alert(JSON.parse(window.localStorage.getItem(key)));
+        return JSON.parse(window.localStorage.getItem(key));
+      }     
     }
 
   });
