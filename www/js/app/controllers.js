@@ -5,10 +5,7 @@
 var appControllers = angular.module('appControllers', []);
 
 appControllers.controller('TaxiListCtrl', ['$scope', 'datasource',
-  function($scope, datasource) {
-    alert(1);
-    alert(JSON);
-    alert(datasource.hasConfig());
+  function($scope, datasource) {    
     if(!datasource.hasConfig()) {
       window.location.assign("#/init");
     } else {
@@ -59,8 +56,9 @@ angular.module('appControllers').service("datasource", function() {
       this.save('myConfig', myConfig);
     },
 
-    this.hasConfig = function() {
+    this.hasConfig = function() {      
       var myConfig = this.get('myConfig');
+      alert(myConfig);
       if(myConfig && myConfig.city && myConfig.operator) {
         return true;
       } else {
@@ -108,6 +106,9 @@ angular.module('appControllers').service("datasource", function() {
     },
 
     this.get = function(key) {
+      alert(key);
+      alert(window.localStorage.getItem(key));
+      alert(JSON.parse(window.localStorage.getItem(key)));
       return JSON.parse(window.localStorage.getItem(key));
     }
 
