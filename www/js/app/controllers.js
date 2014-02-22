@@ -32,11 +32,6 @@ appControllers.controller('ConfigCtrl', ['$scope', 'datasource',
 
 angular.module('appControllers').service("datasource", function() {
     this.getMyConfig = function() {
-      return {
-          city: 'lviv',
-          operator: 'ks'
-        }
-      /*  
       if(this.hasConfig()) {
         return this.get('myConfig');;
       } else {
@@ -44,7 +39,7 @@ angular.module('appControllers').service("datasource", function() {
           city: 'lviv',
           operator: 'ks'
         }
-      }*/
+      }
     },
 
     this.saveMyConfig = function(city, operator) {
@@ -58,7 +53,6 @@ angular.module('appControllers').service("datasource", function() {
 
     this.hasConfig = function() {      
       var myConfig = this.get('myConfig');
-      alert(myConfig);
       if(myConfig && myConfig.city && myConfig.operator) {
         return true;
       } else {
@@ -106,12 +100,9 @@ angular.module('appControllers').service("datasource", function() {
     },
 
     this.get = function(key) {
-      alert(key);
-      alert(window.localStorage.getItem(key));
       if (window.localStorage.getItem(key) == null) {
         return null;
       } else {
-        alert(JSON.parse(window.localStorage.getItem(key)));
         return JSON.parse(window.localStorage.getItem(key));
       }     
     }
