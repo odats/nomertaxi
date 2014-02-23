@@ -78,11 +78,15 @@ angular.module('appControllers').service("datasource", function() {
     },
 
     this.getTaxi = function() {
-      var result = [];
+      var myConfig = this.getMyConfig();
+      var allTaxi = this.get('taxi');
+      
+      // filter by city
+      allTaxi = _.filter(allTaxi, function(item) { return item.city == myConfig.city })
 
-      var taxi = this.get('taxi');
+      var result = [];
       // prepare result
-      _.each(taxi, function(item) {
+      _.each(allTaxi, function(item) {
         result.push({
           title: item.title, 
           phone: item.phones[0]['life'], 

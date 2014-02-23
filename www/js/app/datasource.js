@@ -26,7 +26,15 @@ var defaultData = {
       "phones" : [
         {"life" : "0631505624"}
       ]
-    }
+    },
+    {
+      "title" : "Оптимальне Київ",
+      "city" : "kiev",
+      "avatar": "mock/images/2.png",
+      "phones" : [
+        {"life" : "0631505624"}
+      ]
+    },
   ]
 }
 
