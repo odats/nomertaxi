@@ -9,7 +9,7 @@ appControllers.controller('TaxiListCtrl', ['$scope', 'datasource',
     if(!datasource.hasConfig()) {
       window.location.assign("#/init");
     } else {
-      $scope.phones = datasource.getTaxi();
+      $scope.taxis = datasource.getTaxi();
     }
   }]);
 
@@ -78,20 +78,17 @@ angular.module('appControllers').service("datasource", function() {
     },
 
     this.getTaxi = function() {
-      var result = [
-        {'name': 'Наше таксі плюс', 'avatar': 'mock/images/1.png',
-         'phone': '0631505624'},
-        {'name': 'Оптимальне', 'avatar': 'mock/images/2.png',
-         'phone': '0631505624'},
-        {'name': 'Браво', 'avatar': 'mock/images/3.png',
-         'phone': '0631505624'},
-         {'name': 'Наше таксі плюс', 'avatar': 'mock/images/1.png',
-         'phone': '0631505624'},
-        {'name': 'Оптимальне', 'avatar': 'mock/images/2.png',
-         'phone': '0631505624'},
-        {'name': 'Браво', 'avatar': 'mock/images/3.png',
-         'phone': '0631505624'}
-      ]
+      var result = [];
+
+      var taxi = this.get('taxi');
+      // prepare result
+      _.each(taxi, function(item) {
+        result.push({
+          title: item.title, 
+          phone: item.phones[0]['life'], 
+          avatar: item.avatar});
+      });
+
       return result;
     },
 
