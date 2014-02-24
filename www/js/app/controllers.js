@@ -15,6 +15,11 @@ appControllers.controller('TaxiListCtrl', ['$scope', 'datasource',
 
 appControllers.controller('ConfigCtrl', ['$scope', 'datasource',
   function($scope, datasource) {
+    if (window.localStorage.getItem("taxi") == null) {
+      console.log("init default taxi data", defaultData["taxi"]);
+      window.localStorage.setItem("taxi", JSON.stringify(defaultData["taxi"]));  
+    }
+    
     var myConfig = datasource.getMyConfig();
     $scope.cities = datasource.getCities();
     $scope.operators = datasource.getOperators();
