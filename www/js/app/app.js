@@ -21,7 +21,8 @@ phonecatApp.config(['$routeProvider',
       when('/reset', {
         redirectTo: function() {
           window.localStorage.clear();
-          return '/init';
+          window.location.href = "/"
+          return '/';
         }
       }).
       otherwise({
