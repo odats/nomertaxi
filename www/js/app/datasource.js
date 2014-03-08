@@ -39,13 +39,38 @@ function DataSourceApi()
 
   this.getOperators = function() {
     var operators = [
-      {'title': 'Київстар', 'key': 'ks'},
-      {'title': 'МТС', 'key': 'mts'},
-      {'title': 'life:)', 'key': 'life'},
-      {'title': 'PEOPLEnet', 'key': 'peoplenet'},
-      {'title': '3mob', 'key': '3mob'},
-      {'title': 'Інтертелеком', 'key': 'intertelecom'},       
-    ]
+      {
+        "key": "ks",
+        "title": 'Київстар',
+        "codes": ["039","067","068","096","097","098"],
+      },
+      {
+        "key": "mts",
+        "title": 'МТС',
+        "codes": ["050","066","095","099"]
+      },
+      {
+        "key": "life",
+        "title": 'life:)',
+        "codes": ["063", "093"]
+      },
+      {
+        "key": "PEOPLEnet",
+        "title": 'peoplenet',
+        "codes": ["092"]
+      },
+      {
+        "key": "3mob",
+        "title": '3mob',
+        "codes": ["091"]
+      },
+      {
+        "key": "intertelecom",
+        "title": 'Інтертелеком',
+        "codes": ["094"]
+      },
+    ];
+    
     return operators;
   },
   
@@ -53,6 +78,7 @@ function DataSourceApi()
     var myConfig = this.getMyConfig();
 
     var allTaxi = this.get('taxi');
+    var allOperators = this.getOperators();
     
     // filter by city
     allTaxi = _.filter(allTaxi, function(item) { return item.city == myConfig.city });
@@ -62,18 +88,10 @@ function DataSourceApi()
     // prepare result
 
     // halper function to get closeset phone
-    var get_close_phone = function(phones, my_operator) {
-      var phone_codes = {
-        "ks": ["039","067","068","096","097","098"],
-        "mts": ["050","066","095","099"],
-        "life": ["063,093"],
-        "3mob": ["091"],
-        "peoplenet": ["092"],
-        "intertelecom": ["094"]
-      };      
-
-      var my_operator_codes = phone_codes[my_operator];      
-      if (my_operator_codes && my_operator_codes.length > 0) {
+    var get_close_phone = function(phones, my_operator_key, operators) {
+      var my_operator_codes = _.find(operators, function(item){return item.key == my_operator_key});
+      if (my_operator_codes && my_operator_codes.codes.length > 0) {
+        my_operator_codes = my_operator_codes.codes; 
         var result_phone;
         for (var i=0;i<phones.length;i++) {
           for (var j=0;j<my_operator_codes.length;j++) { 
@@ -92,7 +110,7 @@ function DataSourceApi()
     _.each(allTaxi, function(item) {
       result.push({
         title: item.title, 
-        phone: get_close_phone(item.phones, myConfig.operator), 
+        phone: get_close_phone(item.phones, myConfig.operator, allOperators), 
         avatar: item.avatar});
     });    
 
