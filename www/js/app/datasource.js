@@ -49,21 +49,20 @@ function DataSourceApi()
   this.getTaxi = function() {
     var myConfig = this.getMyConfig();
 
-
-
     var allTaxi = this.get('taxi');
     
     // filter by city
-    allTaxi = _.filter(allTaxi, function(item) { return item.city == myConfig.city })
-
-    var result = [];
+    allTaxi = _.filter(allTaxi, function(item) { return item.city == myConfig.city });
+    // sort
+    allTaxi = _.sortBy(allTaxi, function(item) {  return item.order; });
     // prepare result
+    var result = [];    
     _.each(allTaxi, function(item) {
       result.push({
         title: item.title, 
         phone: item.phones[0]['life'], 
         avatar: item.avatar});
-    });
+    });   
 
     return result;
   },
@@ -92,6 +91,7 @@ var defaultData = {
       "title" : "Наше таксі плюс",
       "city" : "lviv",
       "avatar": "mock/images/1.png",
+      "order" : 2,
       "phones" : [
         {"life" : "0631505624"}
       ]
@@ -100,6 +100,7 @@ var defaultData = {
       "title" : "Оптимальне",
       "city" : "lviv",
       "avatar": "mock/images/2.png",
+      "order" : 1,
       "phones" : [
         {"life" : "0631505624"}
       ]
@@ -108,6 +109,7 @@ var defaultData = {
       "title" : "Браво",
       "city" : "lviv",
       "avatar": "mock/images/3.png",
+      "order" : 3,
       "phones" : [
         {"life" : "0631505624"}
       ]
@@ -116,6 +118,7 @@ var defaultData = {
       "title" : "Оптимальне Київ",
       "city" : "kiev",
       "avatar": "mock/images/2.png",
+      "order" : 4,
       "phones" : [
         {"life" : "0631505624"}
       ]
