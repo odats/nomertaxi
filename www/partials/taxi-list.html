@@ -24,7 +24,7 @@
       <div class="col-md-9">
         <div class="media" style="background-color:#FFFFFF;border-bottom: 2px solid #c4c4c4;margin-bottom:15px;position:relative;">
             <div class="pull-left" style="width:108px;height:108px;background-color:#ebedef;padding:4px;position:relative;">
-                <img src="{{taxi.avatar}}" style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;padding:4px;" class="media-object img-responsive img-rounded" >
+                <img src="{{taxi.avatar}}" onerror="this.src='img/default-taxi.png';"  style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;padding:4px;" class="media-object img-responsive img-rounded" >
             </div>
             <div class="media-body" style="">
                 <p style="font-size:18px;margin-top:10px;">{{taxi.title}}</p>
