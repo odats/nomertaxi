@@ -2,11 +2,9 @@
 <widget id="com.tezavrat.nomertaxi" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>NomerTaxi</name>
     <description>
-        NomerTaxi is a simple application which will show you all Taxi Phone numbers in your city
+        NomerTaxi - всі номера таксі у Вашому телефоні
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        ODats Team
-    </author>
+    <author email="oleg.dats.88@gmail.com" href="http://phonegap.com">Олег Даць</author>
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
